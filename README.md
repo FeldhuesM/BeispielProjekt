@@ -1,18 +1,39 @@
-Es ist ein InteliJ Maven Projekt.
-hat kein Devextreme element 
-JS und Html sowie Css können ignoriert werden. 
-die wichtigen inhalte sind der 
-- overview Conroller(Hier benötigst du die übergabe der daten an das frontend. das erstellen einer neuen zeile löschen oder auch editieren wird über devExtreme Events/eventhandling gemacht)
-- BackendApplication
-- Die form von den Reposiortys
-- Die Form  von den Services
-- Die Form von den Table Classes
-  Alle 5 Punkte musst du ein mal replizierten
+# IntelliJ Maven Projekt
 
-  Repositorys, service sowie Tableclasses sind in diesem Projekt mehrere da hier mehrere DB Tabellen visualisirt werden. Du sollst ja nur eines Visualisieren
+>**Hinweis:** Dieses Projekt verwendet **kein DevExtreme-Element**. HTML, CSS und JavaScript können ignoriert werden.
 
-  Ersten Schritte wie in deiner Mail Beschrieben
-  - MySQL Datenbank erstellen
-  - Maven Projekt in InteliJ aufsetzten. Wichtig zu beachten (pom.xml datei application.Properties Datei)
-  - die 5 Punkte an die datenbank angepasst replizieren
-  - Devextreme Element Einbauen erstmal mit Anzeige/New/Delete/Edit
+## Wichtige Inhalte
+
+Die folgenden Komponenten sind für das Projekt besonders wichtig:
+
+### 1. OverviewController
+- Übergabe der Daten an das Frontend
+- Erstellen, Löschen und Bearbeiten von Zeilen (über DevExtreme-Events/Eventhandling)
+
+### 2. BackendApplication
+- Hauptanwendungsklasse
+
+### 3. Repositorys
+- Aufbau und Struktur der Repositorys
+
+### 4. Services
+- Aufbau und Struktur der Service-Klassen
+
+### 5. Table Classes
+- Aufbau und Struktur der Tabellenklassen
+
+> **Hinweis:** Es gibt in diesem Projekt mehrere Repositorys, Services und Table Classes, da mehrere Datenbanktabellen visualisiert werden.
+
+---
+
+## Ersten Schritte
+
+Schritt-für-Schritt-Anleitung zur Einrichtung des Projekts:
+
+1. **MySQL Datenbank erstellen**
+2. **Maven Projekt in IntelliJ aufsetzen**
+   - Konfiguration der `pom.xml`-Datei
+   - Konfiguration der `application.properties`-Datei
+3. **Anpassung der 5 Komponenten an die Datenbank**
+4. **DevExtreme-Element einbauen**
+   - Einfache Funktionen für Anzeige, Hinzufügen, Löschen und Bearbeiten (New/Delete/Edit)
