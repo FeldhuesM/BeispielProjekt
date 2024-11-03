@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <title>Unternehmen bearbeiten</title>
+</head>
+<body>
+<h1>unternehmen bearbeiten</h1>
+<form th:action="@{/buying_company/{id}(id=${buyingcompany.buyingcompanyid})}" method="post">
+    <label for="companyname">Vorname:</label>
+    <input type="text" id="companyname" name="companyname" th:value="${buyingcompany.companyname}" required><br><br>
+
+    <label for="address">Nachname:</label>
+    <input type="text" id="address" name="address" th:value="${buyingcompany.address}" required><br><br>
+
+    <label for="plz">PLZ:</label>
+    <input type="text" id="plz" name="plz" th:value="${buyingcompany.plz}" required><br><br>
+
+    <label for="nameofcontact">Kontaktsperson:</label>
+    <input type="text" id="nameofcontact" name="nameofcontact" th:value="${buyingcompany.nameofcontact}" required><br><br>
+
+    <label for="emailofcontact">Kontakts Email:</label>
+    <input type="text" id="emailofcontact" name="emailofcontact" th:value="${buyingcompany.emailofcontact}" required><br><br>
+
+    <label for="phonenumber">Phone Number:</label>
+    <input type="text" id="phonenumber" name="phonenumber" th:value="${buyingcompany.phonenumber}" required><br><br>
+
+    <label for="saldo">Saldo:</label>
+    <input type="text" id="saldo" name="saldo" th:value="${buyingcompany.saldo}" required><br><br>
+
+
+    <button type="submit">Änderungen speichern</button>
+</form>
+
+<a href="/">Zurück zur Übersicht</a>
+</body>
+</html>

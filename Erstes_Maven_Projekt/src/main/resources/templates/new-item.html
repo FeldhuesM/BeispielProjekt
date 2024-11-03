@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <title>Neues Item hinzufügen</title>
+</head>
+<body>
+<form th:action="@{/item/new}" method="post">
+    <label for="itemname">Item Name:</label>
+    <input type="text" id="itemname" name="itemname" th:value="${item.itemname}" required><br><br>
+
+
+    <label for="Herkunftsunternehmen">Herkunftsunternehmen</label>
+        <select id="Herkunftsunternehmen" name="item.companyoforiginID" required>
+            <option th:each="company : ${sellingcompanys}"
+                    th:text="${company.companyname} + ' (' + ${company.sellingcompanyid} + ')' "
+                    th:value="${company.sellingcompanyid}">
+            </option>
+        </select>
+    <br><br/>
+
+
+
+
+    <label for="Itemprice">Item Preis:</label>
+    <input type="text" id="Itemprice" name="Itemprice" th:value="${item.itemprice}" required><br><br>
+    <label for="bestand">Bestand:</label>
+    <input type="text" id="bestand" name="bestand" th:value="${item.bestand}" required><br><br>
+    <label for="mindestbestand">Mindestbestand:</label>
+    <input type="text" id="mindestbestand" name="mindestbestand" th:value="${item.mindestbestand}" required><br><br>
+    <label for="maximalbestand">Maximalbestand:</label>
+    <input type="text" id="maximalbestand" name="maximalbestand" th:value="${item.maximalbestand}" required><br><br>
+
+
+    <button type="submit">Item hinzufügen</button>
+</form>
+
+<a href="/">Zurück zur Übersicht</a>
+</body>
+</html>

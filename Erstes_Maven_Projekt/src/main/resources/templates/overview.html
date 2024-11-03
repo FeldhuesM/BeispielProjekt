@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview</title>
+    <link rel="stylesheet" href="/resources/static/styles.css">
+</head>
+<body>
+
+
+<div class="accordion">
+    <button class ="accordion-button">Mitarbeiterliste <span class="arrow"></span>▼</button>
+        <div class="accordion-content">
+            <form  class="sortform" action="#" th:action="@{/}" method="get">
+                <label for="sortBy1">Sortieren nach:</label>
+                <select id="sortBy1" name="sortBy1">
+                    <option value="employeID" th:selected="${param.sortBy1 == 'employeID'}">ID</option>
+                    <option value="firstname" th:selected="${param.sortBy1 == 'firstname'}">Vorname</option>
+                    <option value="lastname" th:selected="${param.sortBy1 == 'lastname'}">Nachname</option>
+                    <option value="address" th:selected="${param.sortBy1 == 'address'}">Addresse</option>
+                    <option value="gender" th:selected="${param.sortBy1 == 'gender'}">Geschlecht</option>
+                    <option value="age" th:selected="${param.sortBy1 == 'age'}">Alter</option>
+                    <option value="email" th:selected="${param.sortBy1 == 'email'}">Email</option>
+                    <option value="nummer" th:selected="${param.sortBy1 == 'nummer'}">Nummer</option>
+
+                </select>
+
+                <label for="order1">Reihenfolge:</label>
+                <select id="order1" name="order1">
+                    <option value="asc" th:selected="${param.order1 == 'asc'}">Aufsteigend</option>
+                    <option value="desc" th:selected="${param.order1 == 'desc'}">Absteigend</option>
+                </select>
+
+                <button class="submitAllForms" type="submit">Sortieren</button>
+            </form>
+
+
+            <table >
+                <tr>
+                    <th>ID</th>
+                    <th>Vorname</th>
+                    <th>Nachname</th>
+                    <th>Adresse</th>
+                    <th>Geschlecht</th>
+                    <th>Alter</th>
+                    <th>Email</th>
+                    <th>Nummer</th>
+                    <th>Aktionen</th>
+                </tr>
+                <tr th:each="employee : ${employees}">
+                    <td th:text="${employee.employeID}"></td>
+                    <td th:text="${employee.firstname}"></td>
+                    <td th:text="${employee.lastname}"></td>
+                    <td th:text="${employee.address}"></td>
+                    <td th:text="${employee.gender}"></td>
+                    <td th:text="${employee.age}"></td>
+                    <td th:text="${employee.email}"></td>
+                    <td th:text="${employee.nummer}"></td>
+                    <td>
+                        <a class="edit" th:href="@{/employees/edit/{id}(id=${employee.employeID})}">Bearbeiten</a>
+                        <a class="delete" th:href="@{/employees/delete/{id}(id=${employee.employeID})}">Löschen</a>
+                    </td>
+                </tr>
+            </table>
+            <a class="new"  href="/employees/new">Neue Mitarbeiter hinzufügen</a>
+        </div>
+</div>
+
+
+<div class="accordion">
+    <button class ="accordion-button">Item Liste <span class="arrow"></span>▼</button>
+        <div class="accordion-content">
+
+            <form class="sortform" action="#" th:action="@{/}" method="get">
+                <label for="sortBy2">Sortieren nach:</label>
+                    <select id="sortBy2" name="sortBy2">
+                        <option value="itemID" th:selected="${param.sortBy2 == 'itemID'}">ItemID</option>
+                        <option value="itemname" th:selected="${param.sortBy2 == 'itemname'}">Item Name</option>
+                        <option value="companyoforiginID" th:selected="${param.sortBy2 == 'companyoforiginID'}">company_of_originID</option>
+                        <option value="itemprice" th:selected="${param.sortBy2 == 'itemprice'}">Item Price</option>
+                        <option value="bestand" th:selected="${param.sortBy2 == 'bestand'}">Bestand</option>
+                        <option value="mindestbestand" th:selected="${param.sortBy2 == 'mindestbestand'}">Mindestbestand</option>
+                        <option value="maximalbestand" th:selected="${param.sortBy2 == 'maximalbestand'}">Maximalbestand</option>
+
+                    </select>
+
+                <label for="order2">Reihenfolge:</label>
+                    <select id="order2" name="order2">
+                        <option value="asc" th:selected="${param.order2 == 'asc'}">Aufsteigend</option>
+                        <option value="desc" th:selected="${param.order2 == 'desc'}">Absteigend</option>
+                    </select>
+
+                <button class="submitAllForms" type="submit">Sortieren</button>
+            </form>
+
+
+            <table >
+                <tr>
+                    <th>ItemID</th>
+                    <th>Item Name</th>
+                    <th>company of originID</th>
+                    <th>Item Price</th>
+                    <th>Bestand</th>
+                    <th>Mindestbestand</th>
+                    <th>Maximalbestand</th>
+                    <th>Aktionen</th>
+
+
+
+                </tr>
+                <tr th:each="item : ${items}">
+                    <td th:text="${item.itemID}"></td>
+                    <td th:text="${item.itemname}"></td>
+                    <td th:text="${item.companyoforiginID}"></td>
+                    <td th:text="${item.itemprice}"></td>
+                    <td th:text="${item.bestand}"></td>
+                    <td th:text="${item.mindestbestand}"></td>
+                    <td th:text="${item.maximalbestand}"></td>
+                    <td>
+                        <a class="edit"  th:href="@{/item/edit/{id}(id=${item.itemID})}">Bearbeiten</a>
+                        <a class="delete" th:href="@{/item/delete/{id}(id=${item.itemID})}">Löschen</a>
+                    </td>
+                </tr>
+            </table>
+
+            <a class="new"  id="a-tag" href="/item/new">Neue Item hinzufügen</a>
+        </div>
+</div>
+
+
+<div class="accordion">
+    <button class ="accordion-button">Buyer Company Liste <span class="arrow"></span>▼</button>
+    <div class="accordion-content">
+
+
+        <form class="sortform"  action="#" th:action="@{/}" method="get">
+            <label for="sortBy3">Sortieren nach:</label>
+                <select id="sortBy3" name="sortBy3">
+                    <option value="buyingcompanyid" th:selected="${param.sortBy3 == 'buyingcompanyid'}">Company ID</option>
+                    <option value="companyname" th:selected="${param.sortBy3 == 'companyname'}">Company Name</option>
+                    <option value="address" th:selected="${param.sortBy3 == 'address'}">Address</option>
+                    <option value="plz" th:selected="${param.sortBy3 == 'plz'}">PLZ</option>
+                    <option value="nameofcontact" th:selected="${param.sortBy3 == 'nameofcontact'}">Kontaktsperson</option>
+                    <option value="emailofcontact" th:selected="${param.sortBy3 == 'emailofcontact'}">Kontakts Email</option>
+                    <option value="phonenumber" th:selected="${param.sortBy3 == 'phonenumber'}">Phone Number</option>
+                    <option value="saldo" th:selected="${param.sortBy3 == 'saldo'}">Saldo</option>
+                </select>
+
+            <label for="order3">Reihenfolge:</label>
+                <select id="order3" name="order3">
+                    <option value="asc" th:selected="${param.order3 == 'asc'}">Aufsteigend</option>
+                    <option value="desc" th:selected="${param.order3 == 'desc'}">Absteigend</option>
+                </select>
+
+            <button class="submitAllForms" type="submit">Sortieren</button>
+
+        </form>
+
+
+        <table >
+            <tr>
+                <th>Company ID</th>
+                <th>Company Name</th>
+                <th>Address</th>
+                <th>plz</th>
+                <th>Kontaktsperson</th>
+                <th>Kontakts Email</th>
+                <th>Phone Number</th>
+                <th>Saldo</th>
+                <th>Aktionen</th>
+
+
+            </tr>
+            <tr th:each="buying_company : ${buyingcompanys}">
+                <td th:text="${buying_company.buyingcompanyid}"></td>
+                <td th:text="${buying_company.companyname}"></td>
+                <td th:text="${buying_company.address}"></td>
+                <td th:text="${buying_company.plz}"></td>
+                <td th:text="${buying_company.nameofcontact}"></td>
+                <td th:text="${buying_company.emailofcontact}"></td>
+                <td th:text="${buying_company.phonenumber}"></td>
+                <td th:text="${buying_company.saldo}"></td>
+                <td>
+                    <a class="edit"  th:href="@{/buying_company/edit/{id}(id=${buying_company.buyingcompanyid})}">Bearbeiten</a>
+                    <a class="delete" th:href="@{/buying_company/delete/{id}(id=${buying_company.buyingcompanyid})}">Löschen</a>
+                </td>
+            </tr>
+        </table>
+
+        <a class="new"  href="/buying_company/new">Neue kaufende Firma hinzufügen</a>
+
+    </div>
+</div>
+
+
+
+<div class="accordion">
+    <button class ="accordion-button">Selling Company Liste <span class="arrow"></span>▼</button>
+    <div class="accordion-content">
+        <form class="sortform" action="#" th:action="@{/}" method="get">
+            <label for="sortBy4">Sortieren nach:</label>
+                <select id="sortBy4" name="sortBy4">
+                    <option value="sellingcompanyid" th:selected="${param.sortBy4 == 'sellingcompanyid'}">Company ID</option>
+                    <option value="companyname" th:selected="${param.sortBy4 == 'companyname'}">Company Name</option>
+                    <option value="address" th:selected="${param.sortBy4 == 'address'}">Address</option>
+                    <option value="plz" th:selected="${param.sortBy3 == 'plz'}">PLZ</option>
+                    <option value="nameofcontact" th:selected="${param.sortBy3 == 'nameofcontact'}">Kontaktsperson</option>
+                    <option value="emailofcontact" th:selected="${param.sortBy3 == 'emailofcontact'}">Kontakts Email</option>
+                    <option value="phonenumber" th:selected="${param.sortBy3 == 'phonenumber'}">Phone Number</option>
+                    <option value="saldo" th:selected="${param.sortBy3 == 'saldo'}">Saldo</option>
+
+                </select>
+
+            <label for="order4">Reihenfolge:</label>
+                <select id="order4" name="order4">
+                    <option value="asc" th:selected="${param.order4 == 'asc'}">Aufsteigend</option>
+                    <option value="desc" th:selected="${param.order4 == 'desc'}">Absteigend</option>
+                </select>
+
+            <button class="submitAllForms" type="submit">Sortieren</button>
+        </form>
+
+        <table border="1">
+            <tr>
+                <th>Company ID</th>
+                <th>Company Name</th>
+                <th>Address</th>
+                <th>plz</th>
+                <th>Kontaktsperson</th>
+                <th>Kontakts Email</th>
+                <th>Phone Number</th>
+                <th>Saldo</th>
+                <th>Aktionen</th>
+
+            </tr>
+            <tr th:each="selling_company : ${sellingcompanys}">
+                <td th:text="${selling_company.sellingcompanyid}"></td>
+                <td th:text="${selling_company.companyname}"></td>
+                <td th:text="${selling_company.address}"></td>
+                <td th:text="${selling_company.plz}"></td>
+                <td th:text="${selling_company.nameofcontact}"></td>
+                <td th:text="${selling_company.emailofcontact}"></td>
+                <td th:text="${selling_company.phonenumber}"></td>
+                <td th:text="${selling_company.saldo}"></td>
+
+                <td>
+                    <a class="edit" th:href="@{/selling_company/edit/{id}(id=${selling_company.sellingcompanyid})}">Bearbeiten</a>
+                    <a class="delete" th:href="@{/selling_company/delete/{id}(id=${selling_company.sellingcompanyid})}">Löschen</a>
+                </td>
+            </tr>
+        </table>
+
+        <a class="new" href="/selling_company/new">Neue Verkaufende Firma hinzufügen</a>
+    </div>
+</div>
+
+
+
+<script src="/resources/static/submitForms.js"></script>
+<script src="/resources/static/einklappen.js"></script>
+</body>
+</html>

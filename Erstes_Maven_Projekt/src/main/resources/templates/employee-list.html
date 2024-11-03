@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <title>Mitarbeiterliste</title>
+</head>
+<body>
+<h1>Mitarbeiterliste</h1>
+
+
+<form action="#" th:action="@{/employees}" method="get">
+    <label for="sortBy">Sortieren nach:</label>
+    <select id="sortBy" name="sortBy">
+        <option value="employeID" th:selected="${param.sortBy == 'employeID'}">ID</option>
+        <option value="firstname" th:selected="${param.sortBy == 'firstname'}">Vorname</option>
+        <option value="lastname" th:selected="${param.sortBy == 'lastname'}">Nachname</option>
+        <option value="address" th:selected="${param.sortBy == 'address'}">Addresse</option>
+        <option value="gender" th:selected="${param.sortBy == 'gender'}">Geschlecht</option>
+        <option value="age" th:selected="${param.sortBy == 'age'}">Alter</option>
+
+    </select>
+
+    <label for="order">Reihenfolge:</label>
+    <select id="order" name="order">
+        <option value="asc" th:selected="${param.order == 'asc'}">Aufsteigend</option>
+        <option value="desc" th:selected="${param.order == 'desc'}">Absteigend</option>
+    </select>
+
+    <button type="submit">Sortieren</button>
+</form>
+
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Vorname</th>
+        <th>Nachname</th>
+        <th>Adresse</th>
+        <th>Geschlecht</th>
+        <th>Alter</th>
+        <th>Aktionen</th>
+    </tr>
+    <tr th:each="employee : ${employees}">
+        <td th:text="${employee.employeID}"></td>
+        <td th:text="${employee.firstname}"></td>
+        <td th:text="${employee.lastname}"></td>
+        <td th:text="${employee.address}"></td>
+        <td th:text="${employee.gender}"></td>
+        <td th:text="${employee.age}"></td>
+        <td>
+            <a th:href="@{/employees/edit/{id}(id=${employee.employeID})}">Bearbeiten</a>
+            <a th:href="@{/employees/delete/{id}(id=${employee.employeID})}">Löschen</a>
+        </td>
+    </tr>
+</table>
+
+<a href="/employees/new">Neuen Mitarbeiter hinzufügen</a>
+
+
+</body>
+</html>

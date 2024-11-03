@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <title>Neuen verkaufende Firma hinzufügen</title>
+</head>
+<body>
+
+<form action="/selling_company/new" method="post">
+    <label for="companyname">Company Name:</label>
+    <input type="text" id="companyname" name="companyname" required><br><br>
+
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" required><br><br>
+
+    <label for="plz">PLZ:</label>
+    <input type="text" id="plz" name="plz" required><br><br>
+
+    <label for="nameofcontact">Kontaktsperson:</label>
+    <input type="text" id="nameofcontact" name="nameofcontact" required><br><br>
+
+    <label for="emailofcontact">Kontakts Email:</label>
+    <input type="text" id="emailofcontact" name="emailofcontact" required><br><br>
+
+    <label for="phonenumber">Phone Number:</label>
+    <input type="text" id="phonenumber" name="phonenumber" required><br><br>
+
+    <label for="saldo">Saldo:</label>
+    <input type="text" id="saldo" name="saldo" required><br><br>
+
+
+    <input type="submit" value="Anlegen">
+</form>
+
+
+<a href="/">Zurück zur Übersicht</a>
+</body>
+</html>

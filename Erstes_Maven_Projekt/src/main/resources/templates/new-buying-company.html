@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <title>Neuen kaufende Firma hinzufügen</title>
+</head>
+<body>
+
+<form th:action="@{/buyingcompany/new}" method="post">
+    <label for="companyname">Vorname:</label>
+    <input type="text" id="companyname" name="companyname" th:value="${buyingcompany.companyname}" required><br><br>
+
+    <label for="address">Nachname:</label>
+    <input type="text" id="address" name="address" th:value="${buyingcompany.address}" required><br><br>
+
+    <label for="plz">Adresse:</label>
+    <input type="text" id="plz" name="plz" th:value="${buyingcompany.plz}" required><br><br>
+
+    <label for="nameofcontact">Adresse:</label>
+    <input type="text" id="nameofcontact" name="nameofcontact" th:value="${buyingcompany.nameofcontact}" required><br><br>
+
+    <label for="emailofcontact">Adresse:</label>
+    <input type="text" id="emailofcontact" name="emailofcontact" th:value="${buyingcompany.emailofcontact}" required><br><br>
+
+    <label for="phonenumber">Adresse:</label>
+    <input type="text" id="phonenumber" name="phonenumber" th:value="${buyingcompany.phonenumber}" required><br><br>
+
+    <label for="saldo">Adresse:</label>
+    <input type="text" id="saldo" name="saldo" th:value="${buyingcompany.saldo}" required><br><br>
+
+
+    <button type="submit">kaufende Firma hinzufügen</button>
+</form>
+
+<a href="/">Zurück zur Übersicht</a>
+</body>
+</html>

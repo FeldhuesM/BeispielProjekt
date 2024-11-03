@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <title>Mitarbeiter bearbeiten</title>
+</head>
+<body>
+<h1>Mitarbeiter bearbeiten</h1>
+<form th:action="@{/selling_company/{id}(id=${sellingcompany.sellingcompanyid})}" method="post">
+    <label for="companyname">Vorname:</label>
+    <input type="text" id="companyname" name="companyname" th:value="${sellingcompany.companyname}" required><br><br>
+
+    <label for="address">Nachname:</label>
+    <input type="text" id="address" name="address" th:value="${sellingcompany.address}" required><br><br>
+
+    <label for="plz">PLZ:</label>
+    <input type="text" id="plz" name="plz" th:value="${sellingcompany.plz}" required><br><br>
+
+    <label for="nameofcontact">Kontaktsperson:</label>
+    <input type="text" id="nameofcontact" name="nameofcontact" th:value="${sellingcompany.nameofcontact}" required><br><br>
+
+    <label for="emailofcontact">Kontakts Email:</label>
+    <input type="text" id="emailofcontact" name="emailofcontact" th:value="${sellingcompany.emailofcontact}" required><br><br>
+
+    <label for="phonenumber">Phone Number:</label>
+    <input type="text" id="phonenumber" name="phonenumber" th:value="${sellingcompany.phonenumber}" required><br><br>
+
+    <label for="saldo">Saldo:</label>
+    <input type="text" id="saldo" name="saldo" th:value="${sellingcompany.saldo}" required><br><br>
+
+
+
+    <button type="submit">Änderungen speichern</button>
+</form>
+
+<a href="/">Zurück zur Übersicht</a>
+</body>
+</html>

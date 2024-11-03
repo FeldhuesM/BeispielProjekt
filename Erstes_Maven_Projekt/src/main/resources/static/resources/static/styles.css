@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.accordion{
+
+    border: none;
+
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    margin: 1%;
+}
+
+.accordion-button{
+    font-size: 20px;
+    text-align: center;
+    margin-top: 1%;
+}
+
+.accordion-content{
+    display: block;
+    margin: 1%;
+}
+
+table {
+    text-decoration: none;
+    margin:auto ;
+    border-collapse: collapse;
+    width: 60%;
+    bottom: 10px;
+}
+
+td, th{
+
+    text-align:center;
+    padding: 2px;
+    border: 2px solid #ddd;
+}
+
+.accordion-content .sortform{
+    margin-bottom: 20px;
+
+}
+
+
+.accordion-content a {
+    display:block;
+    margin-top: 10px ;
+    text-decoration: none;
+    color: black;
+
+}
+.accordion-content .delete {
+    border-color: red;
+    border-width: 1px;
+    border-style: solid;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-top: 2px;
+}
+.accordion-content .edit {
+    border-color: yellow;
+    border-width: 1px;
+    border-style: solid;
+
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.accordion-content .new{
+    border-color: green;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 5px;
+
+    text-align: center;
+    box-sizing: border-box;
+    margin: 30px auto;
+    white-space: nowrap;
+    display: inline-block;
+
+
+}

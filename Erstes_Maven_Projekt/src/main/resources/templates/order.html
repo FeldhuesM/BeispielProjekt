@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Neuer Auftrag</title>
+</head>
+<body>
+    <form id="orderForm"  th:action="@{/order/new}" method="post">
+
+        <label for="companyoforiginID">Verkaufendes Unternehmen</label>
+            <select id="companyoforiginID" name="order.companyoforiginID" onchange="filterItemsByCompany()" required>
+                <option value="">Wählen Sie ein Unternehmen</option>
+                <option th:each="company : ${sellingcompanys}"
+                        th:text="${company.companyname} + ' (' + ${company.sellingcompanyid} + ')' "
+                        th:value="${company.sellingcompanyid}">
+                </option>
+            </select>
+        <br><br/>
+
+        <label for="item-container">Wählen Sie ein Produkt</label>
+            <div id="item-container">
+                <div class="item-selection">
+                    <select name="items[0].itemID" class="item-select" required>
+                        <option value="">Wählen Sie ein Produkt</option>
+                        <option th:each="item : ${items}"
+                                th:attr="data-company=${item.companyoforiginID}"
+                                th:text="${item.itemname} + ' (' + ${item.itemprice} + ')' "
+                                th:value="${item.itemID}">
+                        </option>
+                    </select>
+                    <input type="number" name="items[0].quantity" placeholder="Menge" min="1" />
+
+                </div>
+            </div>
+
+        <!-- Plus-Button zum Hinzufügen neuer Artikel -->
+        <button type="button" onclick="addNewItem()">+</button>
+
+        <br><br/>
+        <button type="submit">Item hinzufügen</button>
+
+        <br><br/>
+    </form>
+
+    <a href="/">Zurück zur Übersicht</a>
+<script src="/resources/static/filterItemsbyCompany.js"> </script>
+<script src="/resources/static/addNewItem.js"> </script>
+</body>
+</html>

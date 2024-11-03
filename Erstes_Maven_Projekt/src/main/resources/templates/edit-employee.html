@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <title>Mitarbeiter bearbeiten</title>
+</head>
+<body>
+<h1>Mitarbeiter bearbeiten</h1>
+<form th:action="@{/employees/{id}(id=${employee.employeID})}" method="post">
+    <label for="firstname">Vorname:</label>
+    <input type="text" id="firstname" name="firstname" th:value="${employee.firstname}" required><br><br>
+
+    <label for="lastname">Nachname:</label>
+    <input type="text" id="lastname" name="lastname" th:value="${employee.lastname}" required><br><br>
+
+    <label for="address">Adresse:</label>
+    <input type="text" id="address" name="address" th:value="${employee.address}" required><br><br>
+
+    <label for="gender">Geschlecht:</label>
+    <input type="text" id="gender" name="gender" th:value="${employee.gender}" required><br><br>
+
+    <label for="age">Alter:</label>
+    <input type="text" id="age" name="age" th:value="${employee.age}" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" th:value="${employee.email}" required><br><br>
+
+    <label for="nummer">Nummer:</label>
+    <input type="text" id="nummer" name="nummer" th:value="${employee.nummer}" required><br><br>
+
+    <button type="submit">Änderungen speichern</button>
+</form>
+
+<a href="/">Zurück zur Mitarbeiterliste</a>
+</body>
+</html>
